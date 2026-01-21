@@ -128,37 +128,42 @@ export async function getSettings() {
 }
 
 export async function updateSettings(formData: FormData) {
+    const getString = (key: string) => {
+        const value = formData.get(key);
+        return value === null ? undefined : (value as string);
+    };
+
     const data = {
-        title: formData.get('title') as string,
-        headline: formData.get('headline') as string,
-        subtext: formData.get('subtext') as string,
-        address: formData.get('address') as string,
-        phone: formData.get('phone') as string,
-        email: formData.get('email') as string,
-        instagram: formData.get('instagram') as string,
-        youtube: formData.get('youtube') as string,
-        linkedin: formData.get('linkedin') as string,
-        siteUrl: formData.get('siteUrl') as string,
+        title: getString('title'),
+        headline: getString('headline'),
+        subtext: getString('subtext'),
+        address: getString('address'),
+        phone: getString('phone'),
+        email: getString('email'),
+        instagram: getString('instagram'),
+        youtube: getString('youtube'),
+        linkedin: getString('linkedin'),
+        siteUrl: getString('siteUrl'),
 
         // Design & Content Control
-        mainColor: formData.get('mainColor') as string,
+        mainColor: getString('mainColor'),
 
         // Hero
-        heroImage: formData.get('heroImage') as string,
-        heroHeadline: formData.get('heroHeadline') as string,
-        heroHeadlineColor: formData.get('heroHeadlineColor') as string,
-        heroHeadlineSize: formData.get('heroHeadlineSize') as string,
-        heroSubtext: formData.get('heroSubtext') as string,
-        heroSubtextColor: formData.get('heroSubtextColor') as string,
-        heroSubtextSize: formData.get('heroSubtextSize') as string,
-        heroDescription: formData.get('heroDescription') as string,
-        heroDescColor: formData.get('heroDescColor') as string,
-        heroDescSize: formData.get('heroDescSize') as string,
+        heroImage: getString('heroImage'),
+        heroHeadline: getString('heroHeadline'),
+        heroHeadlineColor: getString('heroHeadlineColor'),
+        heroHeadlineSize: getString('heroHeadlineSize'),
+        heroSubtext: getString('heroSubtext'),
+        heroSubtextColor: getString('heroSubtextColor'),
+        heroSubtextSize: getString('heroSubtextSize'),
+        heroDescription: getString('heroDescription'),
+        heroDescColor: getString('heroDescColor'),
+        heroDescSize: getString('heroDescSize'),
 
         // Contact
-        contactImage: formData.get('contactImage') as string,
-        contactTitle: formData.get('contactTitle') as string,
-        contactTitleColor: formData.get('contactTitleColor') as string,
+        contactImage: getString('contactImage'),
+        contactTitle: getString('contactTitle'),
+        contactTitleColor: getString('contactTitleColor'),
     };
 
     try {
