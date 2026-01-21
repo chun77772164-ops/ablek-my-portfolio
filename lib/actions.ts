@@ -295,7 +295,7 @@ export async function initializeDefaultCharacters() {
         const defaults = [
             {
                 title: "Total Solution",
-                description: "프로젝트의 시작부터 끝까지, 에이블 케이만의 차별화된 원스톱 솔루션을 제공합니다. 전문적인 컨설팅을 통해 당신의 비전을 현실로 구현합니다. 010.4547.3841",
+                description: "프로젝트의 시작부터 끝까지, 에이블 케이만의 차별화된 원스톱 솔루션을 제공합니다. 전문적인 컨설팅을 통해 당신의 비전을 현실로 구현합니다.",
                 imageUrl: "/images/living_room_luxury_1768900871583.png",
                 order: 1
             },

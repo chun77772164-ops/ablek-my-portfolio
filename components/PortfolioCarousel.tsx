@@ -62,12 +62,12 @@ export default function PortfolioCarousel({ projects }: PortfolioCarouselProps) 
     if (projects.length === 0) return null;
 
     return (
-        <div className="w-full py-32 md:py-40 bg-white relative overflow-hidden flex flex-col items-center justify-center min-h-screen">
+        <div className="w-full py-16 md:py-24 bg-white relative overflow-hidden flex flex-col items-center justify-center">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-50 via-white to-white opacity-50 pointer-events-none" />
 
             <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4">
-                <div className="text-center mb-20">
+                <div className="text-center mb-10">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export default function PortfolioCarousel({ projects }: PortfolioCarouselProps) 
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-5xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter leading-none mb-12 text-black"
+                        className="text-5xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter leading-none mb-8 text-black"
                     >
                         SELECTED WORKS
                     </motion.h2>
@@ -90,7 +90,7 @@ export default function PortfolioCarousel({ projects }: PortfolioCarouselProps) 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16"
+                        className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6"
                     >
                         {categories.map((cat) => (
                             <button
@@ -107,7 +107,7 @@ export default function PortfolioCarousel({ projects }: PortfolioCarouselProps) 
                 </div>
 
                 {/* 3D Carousel Stage */}
-                <div className="relative h-[600px] md:h-[800px] w-full perspective-[2000px] flex items-center justify-center">
+                <div className="relative h-[500px] md:h-[650px] w-full perspective-[2000px] flex items-center justify-center">
                     <div className="relative w-full h-full flex items-center justify-center preserve-3d">
                         {filteredProjects.length > 0 ? (
                             filteredProjects.map((project, index) => {

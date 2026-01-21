@@ -15,6 +15,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 import { getSettings } from "@/lib/actions";
+import Navigation from "@/components/Navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
     const settings = await getSettings();
@@ -50,17 +51,7 @@ export default function RootLayout({
         <html lang="ko" className={`${playfair.variable} ${notoSansKr.variable}`}>
             <body className="font-sans antialiased overflow-x-hidden">
                 {/* Navigation */}
-                <nav className="fixed top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 backdrop-blur-xl bg-black/40 border-b border-white/5">
-                    <div className="text-white text-3xl font-serif font-black tracking-tighter">
-                        ABLE K
-                    </div>
-                    <div className="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.4em] text-white/50">
-                        <a href="#portfolio" className="hover:text-white transition-all transform hover:translate-y-[-1px]">Projects</a>
-                        <a href="#character" className="hover:text-white transition-all transform hover:translate-y-[-1px]">Character</a>
-                        <a href="#" className="hover:text-white transition-all transform hover:translate-y-[-1px]">About</a>
-                        <a href="#contact" className="hover:text-white transition-all transform hover:translate-y-[-1px]">Consultation</a>
-                    </div>
-                </nav>
+                <Navigation />
                 {children}
             </body>
         </html>
