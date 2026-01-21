@@ -166,9 +166,13 @@ export async function updateSettings(formData: FormData) {
             console.error("Prisma model 'setting' is not defined.");
             return { success: false };
         }
-        await prisma.setting.update({
+        await prisma.setting.upsert({
             where: { id: 'site-settings' },
-            data
+            update: data,
+            create: {
+                id: 'site-settings',
+                ...data
+            }
         });
         revalidatePath('/');
         revalidatePath('/admin');
