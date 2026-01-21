@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#f4f4f4] text-gray-900;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/60 backdrop-blur-md border border-white/10 shadow-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600;
+  }
+
+  .text-3d-premium {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 25%, #ffffff 50%, #e0e0e0 75%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+    font-weight: 900;
+    text-shadow:
+      0 1px 0 #d9d9d9,
+      0 2px 0 #d0d0d0,
+      0 3px 0 #c7c7c7,
+      0 4px 0 #bfbfbf,
+      0 5px 0 #b7b7b7,
+      0 6px 1px rgba(0, 0, 0, .1),
+      0 0 5px rgba(0, 0, 0, .1),
+      0 1px 3px rgba(0, 0, 0, .3),
+      0 3px 5px rgba(0, 0, 0, .2),
+      0 5px 10px rgba(0, 0, 0, .25),
+      0 10px 10px rgba(0, 0, 0, .2),
+      0 20px 20px rgba(0, 0, 0, .15);
+  }
+
+  .text-luxury-platinum {
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #e2e2e2 25%,
+      #b8b8b8 50%,
+      #e2e2e2 75%,
+      #ffffff 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    letter-spacing: -0.02em;
+  }
+
+  .text-luxury-gold {
+    background: linear-gradient(
+      135deg,
+      #bf953f 0%,
+      #fcf6ba 25%,
+      #b38728 50%,
+      #fbf5b7 75%,
+      #aa771c 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+  }
+
+  .text-3d-soft {
+    text-shadow: 
+      0 1px 0 #cccccc, 
+      0 2px 0 #c9c9c9, 
+      0 3px 0 #bbbbbb, 
+      0 4px 0 #b9b9b9, 
+      0 5px 0 #aaaaaa, 
+      0 6px 1px rgba(0,0,0,.1), 
+      0 0 5px rgba(0,0,0,.1), 
+      0 1px 3px rgba(0,0,0,.3), 
+      0 3px 5px rgba(0,0,0,.2), 
+      0 5px 10px rgba(0,0,0,.25);
+  }
+
+  .mask-reveal {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}

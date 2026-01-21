@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  mediaType   String   @default("IMAGE")
+  category    String
+  createdAt   DateTime @default(now())
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  area      String?
+  location  String?
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id        String   @id @default("site-settings")
+  title     String   @default("ABLE K")
+  headline  String?  @default("공간은 고정된 상자가 아니라, 삶의 궤적을 기록하고 확장하는 물리적 구현체입니다.")
+  subtext   String?  @default("유행은 한 계절을 넘지 못하지만, 본질에 집중한 아키텍처는 세대를 관통합니다. 우리는 시간이 흐를수록 낡아가는 인테리어가 아닌, 거주자의 성장에 유연하게 호흡하는 ‘공간 인터페이스’를 구축합니다.")
+  address   String?  @default("서울특별시 강남구 테헤란로 123 ABLE 빌딩 15층")
+  phone     String?  @default("+82 02-123-4567")
+  email     String?  @default("hello@ablek.com")
+  instagram String?  @default("#")
+  youtube   String?  @default("#")
+  linkedin  String?  @default("#")
+  siteUrl   String?  @default("https://your-domain.com")
+
+  // Design & Content Control
+  mainColor String   @default("#000000") // Brand Color
+
+  // Hero Section
+  heroImage         String?  @default("")
+  heroHeadline      String?  @default("Habitational Vessel")
+  heroHeadlineColor String   @default("#E5E4E2") // Platinum
+  heroHeadlineSize  String   @default("60")      // px
+  
+  heroSubtext       String?  @default("We build spatial interfaces that respond flexibly to your growth.")
+  heroSubtextColor  String   @default("#9CA3AF") // Gray-400
+  heroSubtextSize   String   @default("18")      // px
+
+  heroDescription   String?  @default("Trends fade, but well-designed architecture endures. Beyond simple design, we build an artistic foundation that synchronizes with your life.")
+  heroDescColor     String   @default("#6B7280") // Gray-500
+  heroDescSize      String   @default("14")      // px
+
+  // Contact Section
+  contactImage      String?  @default("")
+  contactTitle      String?  @default("Collaborate with ABLE K")
+  contactTitleColor String   @default("#FFFFFF")
+
+  // Admin Credentials (Mutable)
+  adminId           String?  @default("admin")
+  adminPassword     String?  @default("1234")
+
+  updatedAt DateTime @updatedAt
+}
+
+model CharacterItem {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
