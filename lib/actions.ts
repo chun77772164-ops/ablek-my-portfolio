@@ -32,6 +32,7 @@ export async function createProject(formData: FormData) {
             },
         });
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error(e);
@@ -43,6 +44,7 @@ export async function deleteProject(id: number) {
     try {
         await prisma.project.delete({ where: { id } });
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error(e);
@@ -169,6 +171,7 @@ export async function updateSettings(formData: FormData) {
             data
         });
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error("Detailed Update Error:", e);
@@ -197,6 +200,7 @@ export async function resetSettings() {
             }
         });
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error("Failed to reset settings:", e);
@@ -239,6 +243,7 @@ export async function upsertCharacterItem(data: { id?: number; title: string; de
             });
         }
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error("Failed to upsert character item:", e);
@@ -265,6 +270,7 @@ export async function updateAdminCredentials(formData: FormData) {
             }
         });
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (e) {
         console.error("Failed to update credentials:", e);
@@ -308,6 +314,7 @@ export async function initializeDefaultCharacters() {
             await prisma.characterItem.create({ data: item });
         }
         revalidatePath('/');
+        revalidatePath('/admin');
         return { success: true };
     } catch (error) {
         console.error("Failed to seed characters:", error);
